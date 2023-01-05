@@ -28,4 +28,10 @@ export class InMemoryNotificationsRepository
       this.notifications[notificationIndex] = notification;
     }
   }
+
+  async countManyByRecipientId(recipientId: any): Promise<number> {
+    return this.notifications.filter(
+      (notification) => notification.recipientId === recipientId,
+    ).length;
+  }
 }
